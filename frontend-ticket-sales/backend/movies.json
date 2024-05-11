@@ -1,0 +1,38 @@
+{
+  "cinema_halls": [
+    {
+      "name": "hall1",
+      "no_rows": 5,
+      "no_seats_in_row": 10
+    },
+    {
+      "name": "hall2",
+      "no_rows": 5,
+      "no_seats_in_row": 10
+    },
+    {
+      "name": "hall3",
+      "no_rows": 5,
+      "no_seats_in_row": 10
+    }
+
+  ],
+  "screening": [
+    {
+      "id": 1,
+      "cinema_hall": "hall1",
+      "date_of_beginning": "22.12.2024",
+      "hour_of_beginning": "14:30",
+      "movie": 1
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "Lord of the Rings",
+      "description": "An epic adventure into a fantasy world",
+      "length_in_mins": 120,
+      "photo_url": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg"
+    }
+  ]
+}
