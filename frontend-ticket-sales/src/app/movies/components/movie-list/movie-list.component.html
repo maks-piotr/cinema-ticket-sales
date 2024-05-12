@@ -1,23 +1,23 @@
 <article class="m-3">
-  <h2>List of screened movies</h2>
-  <section class="d-flex flex-column gap-2">
+  <h2>List of Screened Movies</h2>
+  <section class="d-flex flex-row flex-wrap gap-2">
     @for (movie of movies; track movie.id) {
-      <div class="card mt-1">
+      <div class="card mt-1" style="width: 35rem;">
         <div class="card-body">
           <h5 class="card-title">{{ movie.title }} ({{ movie.year }})</h5>
           <h6 class="card-subtitle mb-2 text-muted"> Directed by {{ movie.director }}</h6>
-          <img src="{{ movie.photo_url }}" class="card-img mb-2" alt="Image of {{ movie.title }}" style="width: 12%;">
-          <p class="card-text mb-2">
+          <img src="{{ movie.photo_url }}" class="card-img mb-2" alt="Image of {{ movie.title }}">
+          <!-- <p class="card-text mb-2">
             {{ movie.description }}
-          </p>
+          </p> -->
           <p class="card-text">
             Length: {{ movie.length_in_mins }} min
           </p>
 
           <a [routerLink]="[movie.id, 'edit']" class="card-link">Screenings</a>
+          <a [routerLink]="[movie.id, 'details']" class="card-link">Movie Details</a>
         </div>
       </div>
     }
-
   </section>
 </article>

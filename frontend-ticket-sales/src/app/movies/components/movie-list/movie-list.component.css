@@ -1,0 +1,6 @@
+.card-img {
+flex-grow: 1; 
+object-fit: contain;
+height: 30rem;
+display: block;
+}

@@ -24,5 +24,7 @@ export class ScreeningListComponent {
           screening.movie = movie;
         });
     });
+    console.log(this.screenings);
+
   }
 }

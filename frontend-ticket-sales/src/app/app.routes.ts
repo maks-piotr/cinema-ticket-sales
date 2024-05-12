@@ -3,6 +3,8 @@ import {MovieListComponent} from "./movies/components/movie-list/movie-list.comp
 import {movieListResolver} from "./movies/resolvers/movie-list.resolver";
 import { ScreeningListComponent } from './movies/components/screening-list/screening-list.component';
 import { screeningListResolver } from './movies/resolvers/screening-list.resolver';
+import { MovieDetailsComponent } from './movies/components/movie-details/movie-details.component';
+import { movieDetailsResolver } from './movies/resolvers/movie-details.resolver';
 
 export const routes: Routes = [
   {
@@ -22,6 +24,13 @@ export const routes: Routes = [
     component: ScreeningListComponent,
     resolve: {
       screenings: screeningListResolver
+    }
+  },
+  {
+    path: 'movies/:id/details',
+    component: MovieDetailsComponent,
+    resolve: {
+      movies: movieDetailsResolver
     }
   }
 ];
