@@ -1,38 +1,63 @@
 {
   "cinema_halls": [
     {
-      "name": "hall1",
+      "name": "Hall A",
       "no_rows": 5,
       "no_seats_in_row": 10
     },
     {
-      "name": "hall2",
-      "no_rows": 5,
+      "name": "Hall B",
+      "no_rows": 4,
       "no_seats_in_row": 10
     },
     {
-      "name": "hall3",
-      "no_rows": 5,
+      "name": "Hall C",
+      "no_rows": 3,
       "no_seats_in_row": 10
     }
 
   ],
-  "screening": [
+  "screenings": [
     {
       "id": 1,
-      "cinema_hall": "hall1",
+      "cinema_hall": "Hall A",
       "date_of_beginning": "22.12.2024",
       "hour_of_beginning": "14:30",
-      "movie": 1
+      "movie_id": 1
+    },
+    {
+      "id": 1,
+      "cinema_hall": "Hall A",
+      "date_of_beginning": "23.12.2024",
+      "hour_of_beginning": "11:30",
+      "movie_id": 2
+    },
+    {
+      "id": 1,
+      "cinema_hall": "Hall B",
+      "date_of_beginning": "24.12.2024",
+      "hour_of_beginning": "15:00",
+      "movie_id": 1
     }
   ],
   "movies": [
     {
       "id": 1,
-      "title": "Lord of the Rings",
-      "description": "An epic adventure into a fantasy world",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "director": "Peter Jackson",
+      "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
       "length_in_mins": 120,
       "photo_url": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
+      "id": 2,
+      "title": "The Place Beyond the Pines",
+      "year": 2012,
+      "director": "Derek Cianfrance",
+      "description": "Two men and their sons must deal with the unforeseen consequences of their actions.",
+      "length_in_mins": 140,
+      "photo_url": "https://m.media-amazon.com/images/M/MV5BMjc1OTEwNjU4N15BMl5BanBnXkFtZTcwNzUzNDIwOQ@@._V1_FMjpg_UX1000_.jpg"
     }
   ]
 }

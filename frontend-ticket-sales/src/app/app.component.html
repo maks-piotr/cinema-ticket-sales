@@ -1,4 +1,6 @@
-<section class="bg-primary p-3">
-  <h1 class="text-light">Ticket sales</h1>
-</section>
+<nav class="ticket-bg p-1 d-flex fixed-top">
+  <!-- <h1 class="text-light">Ticket sales</h1> -->
+  <a [routerLink]="['movies']" class="btn btn-light m-2 costum-w-15">All Movies</a>
+  <a [routerLink]="['screenings']" class="btn btn-light m-2 costum-w-15">All Screenings</a>
+</nav>
 <router-outlet></router-outlet>
