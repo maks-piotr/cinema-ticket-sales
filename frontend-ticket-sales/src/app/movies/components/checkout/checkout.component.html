@@ -1,0 +1,11 @@
+<div class="container mt-3">
+  <h2>Checkout</h2>
+  <p>Selected Seats:</p>
+  <ul>
+    <li *ngFor="let seat of selectedSeats">{{ seat }}</li>
+  </ul>
+  <button class="btn ticket-bg mt-3" [disabled]="isButtonDisabled" (click)="pay()">Pay</button>
+  <div *ngIf="reservationCode" class="mt-3 reservation-code">
+    <p>Reservation code is {{ reservationCode }}</p>
+  </div>
+</div>

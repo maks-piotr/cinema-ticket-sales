@@ -1,0 +1,28 @@
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-bg {
+  background-color: #49525b;
+  color: white;
+  font-size: 1.25rem;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.ticket-bg:hover {
+  background-color: #62768a;
+}
+
+.reservation-code {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

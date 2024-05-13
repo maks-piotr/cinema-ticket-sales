@@ -6,26 +6,48 @@
 
 .seat-map > div {
   display: flex;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
 }
 
 .seat {
-  width: 50px; 
-  height: 50px; 
+  width: 50px;
+  height: 50px;
   background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-right: 5px; 
-  font-size: 16px;  
-  border: 1px solid #000;  
+  margin-right: 5px;
+  font-size: 16px;
+  border: 1px solid #000;
 }
 
 .seat.selected {
-  background-color: #4CAF50;  
+  background-color: #4CAF50;
+}
+
+.seat.taken {
+  background-color: red;
 }
 
 .date-info {
   font-size: 1.2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.ticket-bg {
+  background-color: #49525b; 
+  color: white; 
+  font-size: 1.25rem;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.ticket-bg:hover {
+  background-color: #62768a;
 }

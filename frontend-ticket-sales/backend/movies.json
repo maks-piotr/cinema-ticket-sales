@@ -72,11 +72,26 @@
       "photo_url": "https://m.media-amazon.com/images/M/MV5BN2QyZGU4ZDctOWMzMy00NTc5LThlOGQtODhmNDI1NmY5YzAwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"
     }
   ],
-  "seats": [
+  "taken_seats": [
     {
-      "sceening_id": 1,
+      "screening_id": 1,
       "row": 1,
       "seat": 2
+    },
+    {
+      "screening_id": 1,
+      "row": 3,
+      "seat": 4
+    },
+    {
+      "screening_id": 2,
+      "row": 3,
+      "seat": 4
+    },
+    {
+      "screening_id": 2,
+      "row": 3,
+      "seat": 1
     }
   ]
 }
