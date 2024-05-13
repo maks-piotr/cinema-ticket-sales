@@ -1,16 +1,19 @@
 {
   "cinema_halls": [
     {
+      "id": 1,
       "name": "Hall A",
-      "no_rows": 5,
-      "no_seats_in_row": 10
+      "no_rows": 7,
+      "no_seats_in_row": 25
     },
     {
+      "id": 2,
       "name": "Hall B",
       "no_rows": 4,
       "no_seats_in_row": 10
     },
     {
+      "id": 3,
       "name": "Hall C",
       "no_rows": 3,
       "no_seats_in_row": 10
@@ -20,21 +23,21 @@
   "screenings": [
     {
       "id": 1,
-      "cinema_hall": "Hall A",
+      "cinema_hall_id": 1,
       "date_of_beginning": "22.12.2024",
       "hour_of_beginning": "14:30",
       "movie_id": 1
     },
     {
-      "id": 1,
-      "cinema_hall": "Hall A",
+      "id": 2,
+      "cinema_hall_id": 2,
       "date_of_beginning": "23.12.2024",
       "hour_of_beginning": "11:30",
       "movie_id": 2
     },
     {
-      "id": 1,
-      "cinema_hall": "Hall B",
+      "id": 3,
+      "cinema_hall_id": 2,
       "date_of_beginning": "24.12.2024",
       "hour_of_beginning": "15:00",
       "movie_id": 1
@@ -67,6 +70,13 @@
       "description": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
       "length_in_mins": 166,
       "photo_url": "https://m.media-amazon.com/images/M/MV5BN2QyZGU4ZDctOWMzMy00NTc5LThlOGQtODhmNDI1NmY5YzAwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"
+    }
+  ],
+  "seats": [
+    {
+      "sceening_id": 1,
+      "row": 1,
+      "seat": 2
     }
   ]
 }

@@ -15,4 +15,7 @@ export class ScreeningsService {
   getAllScreenings(): Observable<Screening[]> {
     return this.http.get<Screening[]>(screeningsApiPrefix);
   }
+  getScreeningById(screeningId: number): Observable<Screening> {
+    return this.http.get<Screening>(`${screeningsApiPrefix}/${screeningId}`);
+  }
 }

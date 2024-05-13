@@ -5,6 +5,8 @@ import { ScreeningListComponent } from './movies/components/screening-list/scree
 import { screeningListResolver } from './movies/resolvers/screening-list.resolver';
 import { MovieDetailsComponent } from './movies/components/movie-details/movie-details.component';
 import { movieDetailsResolver } from './movies/resolvers/movie-details.resolver';
+import { ScreeningDetailsComponent } from './movies/components/screening-details/screening-details.component';
+import { screeningDetailsResolver } from './movies/resolvers/screening-details.resolver';
 
 export const routes: Routes = [
   {
@@ -31,6 +33,13 @@ export const routes: Routes = [
     component: MovieDetailsComponent,
     resolve: {
       movies: movieDetailsResolver
+    }
+  },
+  {
+    path: 'screenings/:id',
+    component: ScreeningDetailsComponent,
+    resolve: {
+      screenings: screeningDetailsResolver
     }
   }
 ];

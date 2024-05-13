@@ -1,0 +1,31 @@
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seat-map > div {
+  display: flex;
+  margin-bottom: 5px; 
+}
+
+.seat {
+  width: 50px; 
+  height: 50px; 
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 5px; 
+  font-size: 16px;  
+  border: 1px solid #000;  
+}
+
+.seat.selected {
+  background-color: #4CAF50;  
+}
+
+.date-info {
+  font-size: 1.2rem;
+}

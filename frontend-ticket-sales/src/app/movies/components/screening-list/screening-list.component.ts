@@ -3,13 +3,15 @@ import { Screening } from '../../model/screening';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Movie } from '../../model/movie';
 import { MoviesService } from '../../services/movies.service';
+import { BrowserModule } from '@angular/platform-browser'
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'bs-screening-list',
     templateUrl: './screening-list.component.html',
     styleUrls: ['./screening-list.component.scss'],
     standalone: true,
-    imports: [RouterLink]
+    imports: [CommonModule, RouterLink]
 })
 export class ScreeningListComponent {
 

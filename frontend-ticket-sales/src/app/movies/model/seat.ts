@@ -1,5 +1,5 @@
 export interface Seat {
-    hall_name: string;
+    screening_id: number;
     row: number;
     seat: number;
 }
