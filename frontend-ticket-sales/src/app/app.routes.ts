@@ -9,6 +9,7 @@ import { ScreeningDetailsComponent } from './movies/components/screening-details
 import { screeningDetailsResolver } from './movies/resolvers/screening-details.resolver';
 import { CheckoutComponent } from './movies/components/checkout/checkout.component';
 import { SignInComponent } from './movies/components/signin/signin.component';
+import { VerifyComponent } from './movies/components/verify/verify.component';
 
 export const routes: Routes = [
   {
@@ -45,5 +46,6 @@ export const routes: Routes = [
     }
   },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'signin', component: SignInComponent }
+  { path: 'signin', component: SignInComponent },
+  { path: 'verification', component: VerifyComponent }
 ];

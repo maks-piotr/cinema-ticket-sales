@@ -150,9 +150,9 @@
       "seat": 1
     }
   ],
-  "ticket": [
+  "tickets": [
     {
-      "verficaton_code": "123",
+      "verification_code": "123",
       "screening_id": 1,
       "state": "valid",
       "seats": [

@@ -15,15 +15,15 @@
 
   <section *ngIf="screening?.hall" class="seat-map">
     <h2 class="text-center mb-3">Select seats</h2>
-    <div *ngFor="let row of generateArray(screening.hall.no_rows); let rowIndex = index">
-      <div *ngFor="let seat of generateArray(screening.hall.no_seats_in_row); let seatIndex = index"
+    <div *ngFor="let row of generateArray(screening.hall?.no_rows); let rowIndex = index">
+      <div *ngFor="let seat of generateArray(screening.hall?.no_seats_in_row); let seatIndex = index"
            (click)="selectSeat(rowIndex, seatIndex)"
            [ngClass]="{'selected': isSelected(rowIndex, seatIndex), 'taken': isTaken(rowIndex, seatIndex)}"
            class="seat">
         {{ rowIndex + 1 }}-{{ seatIndex + 1 }}
       </div>
     </div>
-    <button class="btn ticket-bg mt-5" (click)="goToCheckout()">Go to Checkout</button>
+    <button class="btn ticket-button mt-5" (click)="goToCheckout()">Go to Checkout</button>
   </section>
   
 </article>

@@ -8,9 +8,9 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.ticket-bg {
-  background-color: #49525b;
-  color: white;
+.ticket-button {
+  background-color: #49525b; 
+  color: white; 
   font-size: 1.25rem;
   padding: 15px 30px;
   border: none;
@@ -18,9 +18,10 @@
   transition: background-color 0.3s ease;
 }
 
-.ticket-bg:hover {
+.ticket-button:hover {
   background-color: #62768a;
 }
+
 
 .reservation-code {
   font-size: 1.2rem;

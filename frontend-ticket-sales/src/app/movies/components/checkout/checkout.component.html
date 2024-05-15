@@ -4,7 +4,7 @@
   <ul>
     <li *ngFor="let seat of selectedSeats">{{ seat }}</li>
   </ul>
-  <button class="btn ticket-bg mt-3" [disabled]="isButtonDisabled" (click)="pay()">Pay</button>
+  <button class="btn ticket-button mt-3" [disabled]="isButtonDisabled" (click)="pay()">Pay</button>
   <div *ngIf="reservationCode" class="mt-3 reservation-code">
     <p>Reservation code is {{ reservationCode }}</p>
   </div>

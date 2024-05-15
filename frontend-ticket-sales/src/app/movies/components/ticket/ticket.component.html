@@ -1,0 +1,10 @@
+<div class="ticket-details mt-3">
+  <h2>Ticket Details</h2>
+  <p><strong>Verification Code:</strong> {{ ticket.verification_code }}</p>
+  <p><strong>Screening ID:</strong> {{ ticket.screening_id }}</p>
+  <p><strong>State:</strong> {{ ticket.state }}</p>
+  <p><strong>Seats:</strong></p>
+  <ul>
+    <li *ngFor="let seat of ticket.seats">Row: {{ seat.row }}, Seat: {{ seat.seat }}</li>
+  </ul>
+</div>

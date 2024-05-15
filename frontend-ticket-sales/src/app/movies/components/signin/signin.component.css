@@ -1,3 +1,15 @@
 .error-message {
   color: #e74c3c;
 }
+.ticket-button {
+  background-color: #49525b; 
+  color: white; 
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.ticket-button:hover {
+  background-color: #62768a;
+}

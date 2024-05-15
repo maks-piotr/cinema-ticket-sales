@@ -38,7 +38,7 @@
   text-align: center;
 }
 
-.ticket-bg {
+.ticket-button {
   background-color: #49525b; 
   color: white; 
   font-size: 1.25rem;
@@ -48,6 +48,6 @@
   transition: background-color 0.3s ease;
 }
 
-.ticket-bg:hover {
+.ticket-button:hover {
   background-color: #62768a;
 }

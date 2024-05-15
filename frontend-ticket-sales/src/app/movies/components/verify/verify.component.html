@@ -1,0 +1,20 @@
+<!-- verify.component.html -->
+<div class="verify-form m-3">
+  <h2>Verify Ticket</h2>
+  <form (ngSubmit)="verifyTicket()">
+    <div class="form-group row">
+      <label for="ticketCode" class="col-sm-1 col-form-label">Ticket Code:</label>
+      <div class="col-sm-2">
+        <input type="text" id="ticketCode" class="form-control" [(ngModel)]="ticketCode" name="ticketCode" required>
+      </div>
+    </div>
+    
+    <button type="submit" class="ticket-button">Verify</button>
+  </form>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+    {{ errorMessage }}
+  </div>
+
+  <app-ticket *ngIf="ticket" [ticket]="ticket"></app-ticket>
+</div>
