@@ -7,4 +7,5 @@
   <ul>
     <li *ngFor="let seat of ticket.seats">Row: {{ seat.row }}, Seat: {{ seat.seat }}</li>
   </ul>
+  <button (click)="onButtonClick()" [disabled]="isButtonDisabled" class="ticket-button">Approve Ticket</button>
 </div>

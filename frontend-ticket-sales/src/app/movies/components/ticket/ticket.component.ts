@@ -1,4 +1,3 @@
-// ticket.component.ts
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ticket } from '../../model/ticket';
@@ -12,4 +11,9 @@ import { Ticket } from '../../model/ticket';
 })
 export class TicketComponent {
   @Input() ticket!: Ticket;
+  isButtonDisabled = false;
+
+  onButtonClick(): void {
+    this.isButtonDisabled = true;
+  }
 }
