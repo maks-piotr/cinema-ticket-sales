@@ -18,12 +18,12 @@ jobs:
           node-version: 20
 
       - name: Build Angular app to prod
-        working-directory: frontend-tickete-sales
+        working-directory: frontend-ticket-sales
         run: npm install && npm run build:prod
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend-tickete-sales/dist/browser
+          folder: frontend-ticket-sales/dist/browser
           branch: prod  
           token: ${{ secrets.GH_TOKEN }}
