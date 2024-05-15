@@ -8,6 +8,7 @@ import { movieDetailsResolver } from './movies/resolvers/movie-details.resolver'
 import { ScreeningDetailsComponent } from './movies/components/screening-details/screening-details.component';
 import { screeningDetailsResolver } from './movies/resolvers/screening-details.resolver';
 import { CheckoutComponent } from './movies/components/checkout/checkout.component';
+import { SignInComponent } from './movies/components/signin/signin.component';
 
 export const routes: Routes = [
   {
@@ -43,5 +44,6 @@ export const routes: Routes = [
       screenings: screeningDetailsResolver
     }
   },
-  { path: 'checkout', component: CheckoutComponent }
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'signin', component: SignInComponent }
 ];

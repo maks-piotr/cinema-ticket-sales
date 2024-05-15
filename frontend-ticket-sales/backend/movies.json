@@ -149,5 +149,22 @@
       "row": 3,
       "seat": 1
     }
+  ],
+  "ticket": [
+    {
+      "verficaton_code": "123",
+      "screening_id": 1,
+      "state": "valid",
+      "seats": [
+        {
+          "row": 3,
+          "seat": 4
+        },
+        {
+          "row": 1,
+          "seat": 2
+        }
+      ]
+    }
   ]
 }
