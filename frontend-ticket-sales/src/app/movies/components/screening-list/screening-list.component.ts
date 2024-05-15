@@ -24,8 +24,15 @@ export class ScreeningListComponent {
               private movieService: MoviesService) {
     this.screenings = this.activatedRoute.snapshot.data['screenings'];
     this.filteredScreenings = [...this.screenings];
+    
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.selectedMovieId = +params['movieId'] || null;
+      this.filterScreenings();
+    });
 
     this.screenings.forEach(screening => {
+      
       this.movieService.getMovieById(screening.movie_id).subscribe(movie => {
         screening.movie = movie;
       });

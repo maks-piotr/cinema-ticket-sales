@@ -10,6 +10,6 @@
         Length: {{ movie.length_in_mins }} min
       </p>
 
-      <a [routerLink]="[movie.id, 'edit']" class="card-link">Screenings</a>
+      <a [routerLink]="['/screenings']" [queryParams]="{ movieId: movie.id }" class="card-link">Screenings</a>
   </section>
 </article>

@@ -14,7 +14,7 @@
             Length: {{ movie.length_in_mins }} min
           </p> -->
 
-          <a [routerLink]="[movie.id, 'edit']" class="card-link">Screenings</a>
+          <a [routerLink]="['/screenings']" [queryParams]="{ movieId: movie.id }" class="card-link">Screenings</a>
           <a [routerLink]="[movie.id, 'details']" class="card-link">Movie Details</a>
         </div>
       </div>
