@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-moviestore": {
+    "frontend-ticket-sales": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng-moviestore",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "ng-moviestore:build:production"
+              "buildTarget": "frontend-ticket-sales:build:production"
             },
             "development": {
-              "buildTarget": "ng-moviestore:build:development"
+              "buildTarget": "frontend-ticket-sales:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ng-moviestore:build"
+            "buildTarget": "frontend-ticket-sales:build"
           }
         },
         "test": {
@@ -103,4 +103,3 @@
     "analytics": false
   }
 }
-// 3 3 3 5 2 2
