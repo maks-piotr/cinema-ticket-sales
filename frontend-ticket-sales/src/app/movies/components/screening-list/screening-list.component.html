@@ -2,9 +2,12 @@
   <h2>List of Screenings</h2>
   
   <div class="filters mb-3">
-    <label for="datePicker">Select Date:</label>
-    <input type="date" id="datePicker" [(ngModel)]="selectedDate" (change)="onDateChange($event)">
+    <label for="dateFromPicker">Date from:</label>
+    <input type="date" id="dateFromPicker" [(ngModel)]="selectedDateFrom" (change)="onDateChange()">
     
+    <label for="dateToPicker" class="ml-2">Date to:</label>
+    <input type="date" id="dateToPicker" [(ngModel)]="selectedDateTo" (change)="onDateChange()">
+
     <label for="movieSelect" class="ml-2">Select Movie:</label>
     <select id="movieSelect" [(ngModel)]="selectedMovieId" (change)="onMovieChange($event)">
       <option [ngValue]="null">All Movies</option>
@@ -20,7 +23,7 @@
         <p class="card-text m-0">Date: {{ screening.date_of_beginning }}</p>
         <p class="card-text m-0">Start: {{ screening.hour_of_beginning }}</p>
         <p class="card-text m-0"> Length: {{ screening.movie.length_in_mins }} min</p>
-        <p class="card-text"> Hall: {{ screening.cinema_hall_id }}</p>
+        <p class="card-text"> Hall: {{ screening.hall.name }}</p>
 
         <a [routerLink]="['/movies', screening.movie_id, 'details']" class="card-link">Movie Details</a>
         <a [routerLink]="['/screenings', screening.id]" class="card-link">Get Tickets</a>

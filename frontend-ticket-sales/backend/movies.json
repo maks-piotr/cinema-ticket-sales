@@ -41,6 +41,62 @@
       "date_of_beginning": "24.12.2024",
       "hour_of_beginning": "15:00",
       "movie_id": 1
+    },
+    {
+      "id": 4,
+      "cinema_hall_id": 3,
+      "date_of_beginning": "11.06.2024",
+      "hour_of_beginning": "21:00",
+      "movie_id": 3
+    },
+    {
+      "id": 5,
+      "cinema_hall_id": 3,
+      "date_of_beginning": "03.06.2024",
+      "hour_of_beginning": "22:30",
+      "movie_id": 3
+    },
+    {
+      "id": 6,
+      "cinema_hall_id": 2,
+      "date_of_beginning": "03.06.2024",
+      "hour_of_beginning": "12:30",
+      "movie_id": 1
+    },
+    {
+      "id": 7,
+      "cinema_hall_id": 1,
+      "date_of_beginning": "15.06.2024",
+      "hour_of_beginning": "1:30",
+      "movie_id": 2
+    },
+    {
+      "id": 8,
+      "cinema_hall_id": 2,
+      "date_of_beginning": "03.06.2024",
+      "hour_of_beginning": "5:30",
+      "movie_id": 1
+    },
+    {
+      "id": 9,
+      "cinema_hall_id": 1,
+      "date_of_beginning": "03.06.2024",
+      "hour_of_beginning": "6:00",
+      "movie_id": 1
+    },
+    {
+      "id": 6,
+      "cinema_hall_id": 2,
+      "date_of_beginning": "03.06.2024",
+      "hour_of_beginning": "8:30",
+      "movie_id": 3
+    },
+    {
+      "id": 6,
+      "cinema_hall_id": 3,
+      "date_of_beginning": "03.06.2024",
+      "hour_of_beginning": "18:45",
+      "movie_id": 2
     }
   ],
   "movies": [
