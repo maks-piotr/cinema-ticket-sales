@@ -22,8 +22,8 @@ export class ScreeningDetailsComponent {
   selectedSeats: any = {};
   takenSeats: Seat[] = [];
 
-  generateArray(num: number): number[] {
-    return Array(num).fill(0).map((x, i) => i);
+  generateArray(num?: number): number[] {
+    return num ? Array(num).fill(0).map((_, i) => i) : [];
   }
 
   selectSeat(row: number, seat: number): void {

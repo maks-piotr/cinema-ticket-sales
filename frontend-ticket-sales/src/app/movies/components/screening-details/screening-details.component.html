@@ -2,18 +2,18 @@
   <section class="text-details">
     <h2 class="mb-3">Details of Screening</h2>
     <div>
-      <h3 class="card-title">{{ screening.movie.title }} ({{ screening.movie.year }})</h3>
-      <h5 class="card-subtitle mb-2 text-muted"> Directed by {{ screening.movie.director }}</h5>
+      <h3 class="card-title">{{ screening.movie?.title }} ({{ screening.movie?.year }})</h3>
+      <h5 class="card-subtitle mb-2 text-muted"> Directed by {{ screening.movie?.director }}</h5>
       <a [routerLink]="['/movies', screening.movie_id, 'details']" class="date-info card-link mb-3">Movie Details</a>
 
       <p class="date-info card-text m-0">Date: {{ screening.date_of_beginning }}</p>
       <p class="date-info card-text m-0">Start: {{ screening.hour_of_beginning }}</p>
-      <p class="date-info card-text m-0"> Length: {{ screening.movie.length_in_mins }} min</p>
-      <p class="date-info card-text"> Hall: {{ screening.hall.name }}</p>
+      <p class="date-info card-text m-0"> Length: {{ screening.movie?.length_in_mins }} min</p>
+      <p class="date-info card-text"> Hall: {{ screening.hall?.name }}</p>
     </div>
   </section>
 
-  <section class="seat-map">
+  <section *ngIf="screening?.hall" class="seat-map">
     <h2 class="text-center mb-3">Select seats</h2>
     <div *ngFor="let row of generateArray(screening.hall.no_rows); let rowIndex = index">
       <div *ngFor="let seat of generateArray(screening.hall.no_seats_in_row); let seatIndex = index"
@@ -25,4 +25,5 @@
     </div>
     <button class="btn ticket-bg mt-5" (click)="goToCheckout()">Go to Checkout</button>
   </section>
+  
 </article>

@@ -48,10 +48,6 @@ export class ScreeningListComponent implements OnInit {
       this.selectedMovieId = +params['movieId'] || null;
       this.filterScreenings();
     });
-
-    
-
-    
   }
 
   filterScreenings() {

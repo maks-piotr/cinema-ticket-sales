@@ -18,12 +18,12 @@
   <section class="d-flex flex-column gap-2">
     <div class="card mt-1" *ngFor="let screening of filteredScreenings">
       <div class="card-body">
-        <h5 class="card-title">{{ screening.movie.title }} ({{ screening.movie.year }})</h5>
-        <!-- <h6 class="card-subtitle mb-2 text-muted"> Directed by {{ screening.movie.director }}</h6> -->
+        <h5 class="card-title">{{ screening.movie?.title }} ({{ screening.movie?.year }})</h5>
+        <!-- <h6 class="card-subtitle mb-2 text-muted"> Directed by {{ screening.movie?.director }}</h6> -->
         <p class="card-text m-0">Date: {{ screening.date_of_beginning }}</p>
         <p class="card-text m-0">Start: {{ screening.hour_of_beginning }}</p>
-        <p class="card-text m-0"> Length: {{ screening.movie.length_in_mins }} min</p>
-        <p class="card-text"> Hall: {{ screening.hall.name }}</p>
+        <p class="card-text m-0"> Length: {{ screening.movie?.length_in_mins }} min</p>
+        <p class="card-text"> Hall: {{ screening.hall?.name }}</p>
 
         <a [routerLink]="['/movies', screening.movie_id, 'details']" class="card-link">Movie Details</a>
         <a [routerLink]="['/screenings', screening.id]" class="card-link">Get Tickets</a>

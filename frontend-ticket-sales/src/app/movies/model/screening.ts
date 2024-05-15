@@ -7,6 +7,6 @@ export interface Screening {
     movie_id: number;
     hour_of_beginning: string;
     date_of_beginning: string;
-    movie: Movie;
-    hall: Hall;
+    movie?: Movie;
+    hall?: Hall;
 }
