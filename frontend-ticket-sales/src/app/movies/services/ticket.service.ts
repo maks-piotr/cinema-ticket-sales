@@ -13,21 +13,20 @@ export class TicketService {
 
   constructor(private http: HttpClient) {}
 
-  verifyTicket(ticketCode: string): Observable<Ticket> {
-    return this.http.get<Ticket[]>(`${ticketApiPrefix}?verification_code=${ticketCode}`).pipe(
-      tap(response => console.log('API Response:', response)), // This logs the raw response
+  verifyTicket(verificationCode: string): Observable<Ticket> {
+    return this.http.get<Ticket[]>(`${ticketApiPrefix}?verification_code=${verificationCode}`).pipe(
       map(response => {
         if (response && response.length > 0) {
-            return response[0]; // Return the first ticket if the array is not empty
+          return response[0];
         }
-        throw new Error('No tickets found'); // Throw an error if the array is empty
+        throw new Error('No tickets found');
       }),
       catchError(error => {
-        console.error('API Error or No tickets found:', error);
-        return throwError(() => new Error('Failed to verify ticket or no tickets available')); // Emit an error observable
+        return throwError(() => new Error('Failed to verify ticket or no tickets available'));
       })
     );
+  }
 }
-}
+
 
 
