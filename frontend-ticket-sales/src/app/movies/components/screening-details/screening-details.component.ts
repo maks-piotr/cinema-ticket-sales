@@ -30,7 +30,7 @@ export class ScreeningDetailsComponent {
     const key = `${row}-${seat}`;
     if (this.selectedSeats[key]) {
       delete this.selectedSeats[key];
-    } else {
+    } else if(!this.takenSeats.some(s => s.screening_id === this.screening.id && s.row === row+1 && s.seat === seat+1)) {
       this.selectedSeats[key] = true;
     }
   }
