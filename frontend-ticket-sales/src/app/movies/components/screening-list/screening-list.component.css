@@ -1,14 +1,32 @@
 .filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+}
   
-  .filter-item {
-    display: flex;
-    align-items: center;
-  }
+label {
+  margin-right: 0.5rem;
+}
+.ticket-button {
+  background-color: #49525b; 
+  color: white; 
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
   
-  label {
-    margin-right: 0.5rem;
-  }
+.ticket-button:hover {
+background-color: #62768a;
+}
+
+.ticket-button:disabled {
+    color: #999;
+    background-color: #ccc;
+    cursor: not-allowed;
+}

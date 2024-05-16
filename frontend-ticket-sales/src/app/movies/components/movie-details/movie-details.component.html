@@ -2,14 +2,15 @@
   <section class="d-flex flex-column gap-2">
       <h3 class="card-title">{{ movie.title }} ({{ movie.year }})</h3>
       <h4 class="card-subtitle mb-2 text-muted"> Directed by {{ movie.director }}</h4>
-      <img src="{{ movie.photo_url }}" class="card-img mb-2" alt="Image of {{ movie.title }}" style="width: 16%;">
+      <img src="{{ movie.photo_url }}" class="card-img mb-2" alt="Image of {{ movie.title }}" style="width: 19%;">
       <p class="card-text mb-2">
         {{ movie.description }}
       </p>
       <p class="card-text">
         Length: {{ movie.length_in_mins }} min
       </p>
-
-      <a [routerLink]="['/screenings']" [queryParams]="{ movieId: movie.id }" class="card-link">Screenings</a>
-  </section>
+      <div>
+      <button [routerLink]="['/screenings']" [queryParams]="{ movieId: movie.id }" class="btn ticket-button">Screenings</button>
+      </div>
+    </section>
 </article>

@@ -1,9 +1,9 @@
 <article class="m-3 d-flex flex-column">
   <section class="text-details">
-    <h2 class="mb-3">Details of Screening</h2>
+    <h2 class="mb-2">Details of Screening</h2>
     <div>
-      <h3 class="card-title">{{ screening.movie?.title }} ({{ screening.movie?.year }})</h3>
-      <h5 class="card-subtitle mb-2 text-muted"> Directed by {{ screening.movie?.director }}</h5>
+      <h4 class="card-title">{{ screening.movie?.title }} ({{ screening.movie?.year }})</h4>
+      <h6 class="card-subtitle mb-2 text-muted"> Directed by {{ screening.movie?.director }}</h6>
       <a [routerLink]="['/movies', screening.movie_id, 'details']" class="date-info card-link mb-3">Movie Details</a>
 
       <p class="date-info card-text m-0">Date: {{ screening.date_of_beginning }}</p>
@@ -23,7 +23,7 @@
         {{ rowIndex + 1 }}-{{ seatIndex + 1 }}
       </div>
     </div>
-    <button class="btn ticket-button mt-5" (click)="goToCheckout()">Go to Checkout</button>
+    <button class="btn ticket-button mt-2" (click)="goToCheckout()">Go to Checkout</button>
   </section>
   
 </article>

@@ -13,9 +13,10 @@
           <!-- <p class="card-text">
             Length: {{ movie.length_in_mins }} min
           </p> -->
-
-          <a [routerLink]="['/screenings']" [queryParams]="{ movieId: movie.id }" class="card-link">Screenings</a>
-          <a [routerLink]="[movie.id, 'details']" class="card-link">Movie Details</a>
+          <div class="d-flex justify-content-center">
+          <button [routerLink]="['/screenings']" [queryParams]="{ movieId: movie.id }" class="btn ticket-button m-1">Screenings</button>
+          <button [routerLink]="[movie.id, 'details']" class="btn ticket-button m-1">Movie Details</button>
+          </div>
         </div>
       </div>
     }

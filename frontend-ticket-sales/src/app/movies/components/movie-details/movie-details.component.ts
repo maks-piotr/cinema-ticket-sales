@@ -5,7 +5,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 @Component({
     selector: 'bs-movie-details',
     templateUrl: './movie-details.component.html',
-    styleUrls: ['./movie-details.component.scss'],
+    styleUrls: ['./movie-details.component.css'],
     standalone: true,
     imports: [RouterLink]
 })

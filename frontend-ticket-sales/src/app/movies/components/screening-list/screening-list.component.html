@@ -24,9 +24,10 @@
         <p class="card-text m-0">Start: {{ screening.hour_of_beginning }}</p>
         <p class="card-text m-0"> Length: {{ screening.movie?.length_in_mins }} min</p>
         <p class="card-text"> Hall: {{ screening.hall?.name }}</p>
-
-        <a [routerLink]="['/movies', screening.movie_id, 'details']" class="card-link">Movie Details</a>
-        <a [routerLink]="['/screenings', screening.id]" class="card-link">Get Tickets</a>
+        
+        
+        <button [routerLink]="['/movies', screening.movie_id, 'details']" class="btn ticket-button m-1">Movie Details</button>
+        <button [routerLink]="['/screenings', screening.id]" class="btn ticket-button m-1">Get Tickets</button>
       </div>
     </div>
   </section>
