@@ -105,7 +105,9 @@ export class ScreeningDetailsComponent {
 
   }
   goToCheckout(): void {
-    const selectedSeats = Object.keys(this.selectedSeats);
-    this.router.navigate(['/checkout'], { state: { selectedSeats } });
+    if (Object.keys(this.selectedSeats).length > 0) {
+      const selectedSeats = Object.keys(this.selectedSeats);
+      this.router.navigate(['/checkout'], { state: { selectedSeats } });
+    }
   }
 }
