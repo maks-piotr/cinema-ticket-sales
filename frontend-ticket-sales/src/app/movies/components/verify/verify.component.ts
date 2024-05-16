@@ -1,4 +1,3 @@
-// verify.component.ts
 import { Component } from '@angular/core';
 import { TicketService } from '../../services/ticket.service';
 import { Ticket } from '../../model/ticket';
@@ -22,9 +21,9 @@ export class VerifyComponent {
   constructor(private ticketService: TicketService) {}
 
   verifyTicket(): void {
-    this.ticketService.verifyTicket(this.ticketCode).subscribe(
-      (ticket) => {
-        console.log(ticket)
+
+    const signinObserver = {
+      next: (ticket: Ticket) => {
         if (ticket) {
           this.ticket = ticket;
           this.errorMessage = null;
@@ -33,10 +32,15 @@ export class VerifyComponent {
           this.ticket = null;
         }
       },
-      (error) => {
-        this.errorMessage = 'An error occurred. Please try again.';
+      error: (error: any) => {
+        this.errorMessage = 'Invalid ticket code. Please try again.';
         this.ticket = null;
+      },
+      complete: () => {
+        console.log('Verification completed');
       }
-    );
+    };
+
+    this.ticketService.verifyTicket(this.ticketCode).subscribe(signinObserver)
   }
 }

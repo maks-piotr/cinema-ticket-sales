@@ -21,13 +21,21 @@ export class SignInComponent {
   signIn(event: Event) {
     event.preventDefault();
     
-    this.authService.signIn(this.email, this.password).subscribe(() => {
-      this.router.navigate(['/verification']);
-      console.log('Sign-in successful');
-      this.errorMessage = null
-    }, (error: any) => {
-      this.errorMessage = 'Sign-in failed. Please check your credentials and try again.';
-      console.error('Sign-in failed', error);
-    });
-  }
+    const signinObserver = {
+      next: (feedback: any) => {
+        this.router.navigate(['/verification']);
+        console.log('Sign-in successful');
+        this.errorMessage = null
+      },
+      error: (error: any) => {
+        this.errorMessage = 'Sign-in failed. Please check your credentials and try again.';
+        console.error('Sign-in failed', error);
+      },
+      complete: () => {
+        console.log('Signin completed');
+      }
+    };
+
+    this.authService.signIn(this.email, this.password).subscribe(signinObserver)
+}
 }
