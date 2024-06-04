@@ -1,6 +1,6 @@
 export interface Hall {
+    id: number
     name: string;
-    no_rows: number;
-    no_seats_in_row: number;
+    rows: number;
+    seatsInRows: number;
 }
-      

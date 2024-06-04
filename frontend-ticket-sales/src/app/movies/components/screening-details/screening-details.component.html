@@ -2,21 +2,21 @@
   <section class="text-details">
     <h2 class="mb-2">Details of Screening</h2>
     <div>
-      <h4 class="card-title">{{ screening.movie?.title }} ({{ screening.movie?.year }})</h4>
+      <h4 class="card-title">{{ screening.movie?.title }}</h4>
       <h6 class="card-subtitle mb-2 text-muted"> Directed by {{ screening.movie?.director }}</h6>
       <a [routerLink]="['/movies', screening.movie_id, 'details']" class="date-info card-link mb-3">Movie Details</a>
 
-      <p class="date-info card-text m-0">Date: {{ screening.date_of_beginning }}</p>
-      <p class="date-info card-text m-0">Start: {{ screening.hour_of_beginning }}</p>
-      <p class="date-info card-text m-0"> Length: {{ screening.movie?.length_in_mins }} min</p>
-      <p class="date-info card-text"> Hall: {{ screening.hall?.name }}</p>
+      <p class="date-info card-text m-0">Date: {{ screening.dateOfBeginning }}</p>
+      <!-- <p class="date-info card-text m-0">Start: {{ screening.hour_of_beginning }}</p> -->
+      <p class="date-info card-text m-0"> Length: {{ screening.movie?.lengthInMins }} min</p>
+      <p class="date-info card-text"> Hall: {{ screening.cinemaHall?.name }}</p>
     </div>
   </section>
 
-  <section *ngIf="screening?.hall" class="seat-map">
+  <section *ngIf="screening.cinemaHall" class="seat-map">
     <h2 class="text-center mb-3">Select seats</h2>
-    <div *ngFor="let row of generateArray(screening.hall?.no_rows); let rowIndex = index">
-      <div *ngFor="let seat of generateArray(screening.hall?.no_seats_in_row); let seatIndex = index"
+    <div *ngFor="let row of generateArray(screening.cinemaHall?.rows); let rowIndex = index">
+      <div *ngFor="let seat of generateArray(screening.cinemaHall?.seatsInRows); let seatIndex = index"
            (click)="selectSeat(rowIndex, seatIndex)"
            [ngClass]="{'selected': isSelected(rowIndex, seatIndex), 'taken': isTaken(rowIndex, seatIndex)}"
            class="seat">

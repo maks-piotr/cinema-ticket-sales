@@ -40,7 +40,7 @@ export class ScreeningListComponent implements OnInit {
         screening.movie = movie;
       });
       this.hallsService.getHallById(screening.cinema_hall_id).subscribe(hall => {
-        screening.hall = hall;
+        screening.cinemaHall = hall;
       });
     });
 
@@ -52,8 +52,8 @@ export class ScreeningListComponent implements OnInit {
 
   filterScreenings() {
     this.filteredScreenings = this.screenings.filter(screening => {
-      const matchesDate = (!this.selectedDateFrom || this.parseDate(screening.date_of_beginning) >= new Date(this.selectedDateFrom)) &&
-                          (!this.selectedDateTo || this.parseDate(screening.date_of_beginning) <= new Date(this.selectedDateTo));
+      const matchesDate = (!this.selectedDateFrom || this.parseDate(screening.dateOfBeginning) >= new Date(this.selectedDateFrom)) &&
+                          (!this.selectedDateTo || this.parseDate(screening.dateOfBeginning) <= new Date(this.selectedDateTo));
       const matchesMovie = !this.selectedMovieId || screening.movie_id === this.selectedMovieId;
       return matchesDate && matchesMovie;
     });
@@ -62,8 +62,8 @@ export class ScreeningListComponent implements OnInit {
 
   sortScreenings() {
     this.filteredScreenings.sort((a, b) => {
-      const dateA = this.parseDate(a.date_of_beginning, a.hour_of_beginning);
-      const dateB = this.parseDate(b.date_of_beginning, b.hour_of_beginning);
+      const dateA = this.parseDate(a.dateOfBeginning, "0:00");
+      const dateB = this.parseDate(b.dateOfBeginning, "0:00");
       return dateA.getTime() - dateB.getTime();
     });
   }

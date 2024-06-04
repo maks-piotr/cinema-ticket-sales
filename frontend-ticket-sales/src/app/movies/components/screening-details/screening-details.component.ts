@@ -70,7 +70,7 @@ export class ScreeningDetailsComponent {
     if (this.screening && this.screening.cinema_hall_id) {
       const hallObserver = {
         next: (hall: Hall) => {
-          this.screening.hall = hall;
+          this.screening.cinemaHall = hall;
         },
         error: (error: any) => {
           console.error('Error fetching hall details:', error);

@@ -4,14 +4,14 @@
     @for (movie of movies; track movie.id) {
       <div class="card mt-1" style="width: 35rem;">
         <div class="card-body">
-          <h5 class="card-title">{{ movie.title }} ({{ movie.year }})</h5>
+          <h5 class="card-title">{{ movie.title }}</h5>
           <h6 class="card-subtitle mb-2 text-muted"> Directed by {{ movie.director }}</h6>
-          <img src="{{ movie.photo_url }}" class="card-img mb-2" alt="Image of {{ movie.title }}">
+          <img src="{{ movie.photoUrl }}" class="card-img mb-2" alt="Image of {{ movie.title }}">
           <!-- <p class="card-text mb-2">
             {{ movie.description }}
           </p> -->
           <!-- <p class="card-text">
-            Length: {{ movie.length_in_mins }} min
+            Length: {{ movie.lengthInMins }} min
           </p> -->
           <div class="d-flex justify-content-center">
           <button [routerLink]="['/screenings']" [queryParams]="{ movieId: movie.id }" class="btn ticket-button m-1">Screenings</button>
