@@ -4,14 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Set;
-// sala kinowa
+
 @Entity(name = "cinema_halls")
 public class CinemaHall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // Lista seansów przypisanych do tej sali
-    // Relacja jeden do wielu z encją Screening
+
     @JsonIgnore
     @OneToMany(mappedBy = "cinemaHall")
     private Set<Screening> screenings;
