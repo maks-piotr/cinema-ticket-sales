@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Set;
-// film
+
 @Entity(name = "movies")
 public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //Relacja jeden do wielu, zdefiniowana przez pole 'movie' w klasie Screening
+
     @JsonIgnore
     @OneToMany(mappedBy = "movie")
     private Set<Screening> screenings;
