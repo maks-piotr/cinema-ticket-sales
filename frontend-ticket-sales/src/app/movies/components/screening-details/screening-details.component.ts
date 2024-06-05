@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Movie } from '../../model/movie';
 import { MoviesService } from '../../services/movies.service';
 import { HallsService } from '../../services/halls.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Hall } from '../../model/hall';
 import { Seat } from '../../model/seat';
 import { SeatsService } from '../../services/seats.service';
@@ -14,7 +14,8 @@ import { SeatsService } from '../../services/seats.service';
     templateUrl: './screening-details.component.html',
     styleUrls: ['./screening-details.component.css'],
     standalone: true,
-    imports: [RouterLink, CommonModule]
+    imports: [RouterLink, CommonModule],
+    providers: [DatePipe]
 })
 export class ScreeningDetailsComponent {
 
@@ -44,10 +45,8 @@ export class ScreeningDetailsComponent {
   }
 
   constructor(private readonly activatedRoute: ActivatedRoute,
-    private movieService: MoviesService,
-    private hallService: HallsService,
-    private seatsService: SeatsService,
-    private router: Router
+    private router: Router,
+    private datePipe: DatePipe
   ) {
     this.screening = this.activatedRoute.snapshot.data['screenings'];
     console.log(this.screening);
@@ -82,4 +81,12 @@ export class ScreeningDetailsComponent {
       this.router.navigate(['/checkout'], { state: { selectedSeats } });
     }
   }
+  formatDate(dateString: string): string {
+    return this.datePipe.transform(dateString, 'dd.MM.yyyy') || dateString;
+  }
+  
+  formatTime(dateString: string): string {
+    return this.datePipe.transform(dateString, 'HH:mm') || dateString;
+  }
+
 }

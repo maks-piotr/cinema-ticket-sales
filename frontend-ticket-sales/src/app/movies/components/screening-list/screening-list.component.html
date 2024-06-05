@@ -19,14 +19,13 @@
     <div class="card mt-1" *ngFor="let screening of filteredScreenings">
       <div class="card-body">
         <h5 class="card-title">{{ screening.movie?.title }}</h5>
-        <!-- <h6 class="card-subtitle mb-2 text-muted"> Directed by {{ screening.movie?.director }}</h6> -->
-        <p class="card-text m-0">Date: {{ screening.dateOfBeginning }}</p>
-        <!-- <p class="card-text m-0">Start: {{ screening.hour_of_beginning }}</p> -->
+        <p class="card-text m-0">Date: {{ formatDate(screening.dateOfBeginning) }}</p>
+        <p class="card-text m-0">Start: {{ formatTime(screening.dateOfBeginning) }}</p>
         <p class="card-text m-0"> Length: {{ screening.movie?.lengthInMins }} min</p>
         <p class="card-text"> Hall: {{ screening.cinemaHall?.name }}</p>
         
         
-        <button [routerLink]="['/movies', screening.movie_id, 'details']" class="btn ticket-button m-1">Movie Details</button>
+        <button [routerLink]="['/movies', screening.movie?.id, 'details']" class="btn ticket-button m-1">Movie Details</button>
         <button [routerLink]="['/screenings', screening.id]" class="btn ticket-button m-1">Get Tickets</button>
       </div>
     </div>

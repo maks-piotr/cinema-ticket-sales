@@ -4,10 +4,10 @@
     <div>
       <h4 class="card-title">{{ screening.movie?.title }}</h4>
       <h6 class="card-subtitle mb-2 text-muted"> Directed by {{ screening.movie?.director }}</h6>
-      <a [routerLink]="['/movies', screening.movie_id, 'details']" class="date-info card-link mb-3">Movie Details</a>
+      <a [routerLink]="['/movies', screening.movie?.id, 'details']" class="date-info card-link mb-3">Movie Details</a>
 
-      <p class="date-info card-text m-0">Date: {{ screening.dateOfBeginning }}</p>
-      <!-- <p class="date-info card-text m-0">Start: {{ screening.hour_of_beginning }}</p> -->
+      <p class="date-info card-text m-0">Date: {{ formatDate(screening.dateOfBeginning) }}</p>
+      <p class="date-info card-text m-0">Start: {{ formatTime(screening.dateOfBeginning) }}</p>
       <p class="date-info card-text m-0"> Length: {{ screening.movie?.lengthInMins }} min</p>
       <p class="date-info card-text"> Hall: {{ screening.cinemaHall?.name }}</p>
     </div>
