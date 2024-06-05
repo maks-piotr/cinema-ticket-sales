@@ -35,15 +35,6 @@ export class ScreeningListComponent implements OnInit {
       this.movies = movies;
     });
 
-    this.screenings.forEach(screening => {
-      this.movieService.getMovieById(screening.movie_id).subscribe(movie => {
-        screening.movie = movie;
-      });
-      this.hallsService.getHallById(screening.cinema_hall_id).subscribe(hall => {
-        screening.cinemaHall = hall;
-      });
-    });
-
     this.activatedRoute.queryParams.subscribe(params => {
       this.selectedMovieId = +params['movieId'] || null;
       this.filterScreenings();
@@ -52,9 +43,8 @@ export class ScreeningListComponent implements OnInit {
 
   filterScreenings() {
     this.filteredScreenings = this.screenings.filter(screening => {
-      const matchesDate = (!this.selectedDateFrom || this.parseDate(screening.dateOfBeginning) >= new Date(this.selectedDateFrom)) &&
-                          (!this.selectedDateTo || this.parseDate(screening.dateOfBeginning) <= new Date(this.selectedDateTo));
-      const matchesMovie = !this.selectedMovieId || screening.movie_id === this.selectedMovieId;
+      const matchesDate = true;
+      const matchesMovie = !this.selectedMovieId || screening.movie?.id === this.selectedMovieId;
       return matchesDate && matchesMovie;
     });
     this.sortScreenings();

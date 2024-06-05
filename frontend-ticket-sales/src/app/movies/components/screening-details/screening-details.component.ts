@@ -51,53 +51,25 @@ export class ScreeningDetailsComponent {
   ) {
     this.screening = this.activatedRoute.snapshot.data['screenings'];
     console.log(this.screening);
-    if (this.screening && this.screening.movie_id) {
-      const movieObserver = {
-        next: (movie: Movie) => {
-          this.screening.movie = movie;
-        },
-        error: (error: any) => {
-          console.error('Error fetching movie details:', error);
-        },
-        complete: () => {
-          console.log('Movie fetch completed');
-        }
-      };
     
-      this.movieService.getMovieById(this.screening.movie_id).subscribe(movieObserver);
-    }
-    
-    if (this.screening && this.screening.cinema_hall_id) {
-      const hallObserver = {
-        next: (hall: Hall) => {
-          this.screening.cinemaHall = hall;
-        },
-        error: (error: any) => {
-          console.error('Error fetching hall details:', error);
-        },
-        complete: () => {
-          console.log('Hall fetch completed');
-        }
-      };
-    
-      this.hallService.getHallById(this.screening.cinema_hall_id).subscribe(hallObserver);
-    }
-    
-    if (this.screening && this.screening.id) {
-      const seatsObserver = {
-        next: (seats: Seat[]) => {
-          this.takenSeats = seats;
-        },
-        error: (error: any) => {
-          console.error('Error fetching taken seats:', error);
-        },
-        complete: () => {
-          console.log('Taken seats fetch completed');
-        }
-      };
+  
+    // need new method of getting taken seats after switching to real backend
 
-      this.seatsService.getTakenSeatsByScreeningId(this.screening.id).subscribe(seatsObserver);
-    }
+    // if (this.screening && this.screening.id) {
+    //   const seatsObserver = {
+    //     next: (seats: Seat[]) => {
+    //       this.takenSeats = seats;
+    //     },
+    //     error: (error: any) => {
+    //       console.error('Error fetching taken seats:', error);
+    //     },
+    //     complete: () => {
+    //       console.log('Taken seats fetch completed');
+    //     }
+    //   };
+
+    //   this.seatsService.getTakenSeatsByScreeningId(this.screening.id).subscribe(seatsObserver);
+    // }
 
     
     
