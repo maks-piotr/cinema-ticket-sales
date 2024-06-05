@@ -1,7 +1,7 @@
 package com.example.backend.model;
 
 import jakarta.persistence.*;
-// Encji JPA przypisanie roli dla użytkownika
+
 @Entity
 @Table(name = "roles")
 public class Role {
@@ -9,7 +9,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    // mail ma byc nie pusty i masx 30 znaków
+
     @Enumerated(EnumType.STRING)
     @Column(length = 30)
     private RoleEnum name;

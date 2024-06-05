@@ -17,22 +17,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.stream.Collectors;
 
-// Logowanie Endpointy
 @CrossOrigin(origins = "https://localhost:4200", maxAge = 3600, allowCredentials = "true")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    // Wstrzykanie zalezności
     private final AuthService authService;
     private final JwtUtils jwtUtils;
-    // konstruktor
+
     @Autowired
     public AuthController(AuthService authService, JwtUtils jwtUtils) {
         this.authService = authService;
         this.jwtUtils = jwtUtils;
     }
-    // endpoint do logowania
+
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         UserDetailsImpl userDetails = authService.authenticateUser(loginRequest);
@@ -45,7 +43,7 @@ public class AuthController {
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
                 .body(userInfoResponse);
     }
-    // Endpoint do rejestracji
+
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signupRequest) {
         if(authService.registerUser(signupRequest)) {
@@ -55,7 +53,7 @@ public class AuthController {
                     .body(new MessageResponse("Error: Email is already in use!"));
         }
     }
-    // Endpoint do wylogowania
+
     @PostMapping("/signout")
     public ResponseEntity<?> logoutUser() {
         ResponseCookie cookie = jwtUtils.getCleanJwtCookie();

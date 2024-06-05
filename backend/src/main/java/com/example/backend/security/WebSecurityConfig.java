@@ -72,6 +72,8 @@ public class WebSecurityConfig {
                                 .requestMatchers("/api/tickets/**").permitAll()
                                 .requestMatchers("/api/tickets/clip").authenticated()
                                 .requestMatchers("/api/tickets/{id}").authenticated()
+                                .requestMatchers("/api/cinema-halls/**").permitAll()
+                                .requestMatchers("/api/movies/**").permitAll()
                                 .requestMatchers("/api/test/**").permitAll()
                                 .requestMatchers("/h2-console/**").permitAll()
                                 .anyRequest().authenticated()
@@ -82,7 +84,6 @@ public class WebSecurityConfig {
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
         http.headers().frameOptions().sameOrigin();
-
 
         return http.build();
     }

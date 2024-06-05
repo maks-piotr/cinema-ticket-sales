@@ -19,16 +19,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // mail ma byc nie pusty i masx 30 znaków
+
     @NotBlank
     @Size(max = 30)
     @Email
     private String email;
-    // haslo ma byc nie pusty i masx 120 znaków
+
     @NotBlank
     @Size(max = 120)
     private String password;
-    // reszta danych o user
+
     @NotBlank
     @Size(max = 50)
     private String firstName;
@@ -36,8 +36,7 @@ public class User {
     @NotBlank
     @Size(max = 50)
     private String lastName;
-    // Relacja wiele-do-wielu z tabelą Role,
-    // zdefiniowana za pomocą tabeli 'user_roles'.
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
         joinColumns = @JoinColumn(name = "user_id"),

@@ -2,7 +2,6 @@ package com.example.backend.payload.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
-// Rejestracja
 
 public record SignupRequest(
         @Size(max = 50) @Email String email,

@@ -13,7 +13,7 @@ import java.io.IOException;
 
 @Component
 public class AccessDeniedExceptionHandler implements AccessDeniedHandler {
-    // Logger do rejestrowania informacji o błędach dostępu
+
     private static final Logger logger = LoggerFactory.getLogger(AccessDeniedExceptionHandler.class);
 
     @Override

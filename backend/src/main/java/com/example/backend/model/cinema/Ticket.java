@@ -8,18 +8,15 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Relacja wiele do jednego,
-    // każdy bilet jest przypisany do jednego seansu
     @ManyToOne
     @JoinColumn(name = "screening_id", referencedColumnName = "id")
     private Screening screening;
 
-    // Status biletu
     @Enumerated(EnumType.STRING)
     private TicketStatus status;
-    // siedzienia
+
     private Integer seatNumber;
-    // numer rzędu
+
     private Integer rowNumber;
 
     public void setId(Long id) {

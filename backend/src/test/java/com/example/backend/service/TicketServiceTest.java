@@ -104,8 +104,4 @@ public class TicketServiceTest {
         ticket.setScreening(screening);
         return ticket;
     }
-
-    // testy do clip
-
-    // testy do innych przypadków
 }

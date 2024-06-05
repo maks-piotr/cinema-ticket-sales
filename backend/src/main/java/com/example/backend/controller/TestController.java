@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/test")
 public class TestController {
-    // Endpont - publiczny dostep
+
     @GetMapping("/all")
     public String allAccess() {
         return "Public Content.";
     }
 
-    // Endpoint z ograniczonym dostępem, tylko dla użytkowników z rolą TICKET_COLLECTOR
     @GetMapping("/ticket-collector")
     @PreAuthorize("hasRole('TICKET_COLLECTOR')")
     public String adminAccess() {

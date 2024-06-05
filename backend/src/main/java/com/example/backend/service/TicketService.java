@@ -39,13 +39,13 @@ public class TicketService {
         int rowNumber = createTicketRequest.rowNumber();
         int seatNumber = createTicketRequest.seatNumber();
 
-        // Jesli bilet o danym id sali, pozycji siedzenia istnieje to wyrzuca blad.
+        //Jesli bilet o danym id sali, pozycji siedzenia istnieje to wyrzuca blad.
         Optional<Ticket> occupiedTicketOpt = ticketRepository.findByScreeningAndRowNumberAndSeatNumber(screening, rowNumber, seatNumber);
         if(!occupiedTicketOpt.isEmpty()) {
             throw new EntityExistsException("Ticket with screening ID " + screening.getId() + ", row number " + rowNumber + ", and seat number " + seatNumber + " already exists");
         }
 
-        // Jesli siedzenia nie istnieje w sali to wyrzuca blad.
+        //Jesli liczba pozycja siedzenia nie istnieje w sali to wyrzuca blad.
         if(screening.getCinemaHall().getRows() < rowNumber || screening.getCinemaHall().getSeatsInRows() < seatNumber) {
             throw new IllegalArgumentException("The cinema hall does not have such a seat.");
         }
@@ -73,12 +73,12 @@ public class TicketService {
                 ticketRepository.save(ticket);
                 return false;
             } else if(ticket.getStatus() == TicketStatus.VALID && now.isBefore(screeningEndTime)) {
-                // Jesli bilet ma juz status wazny i jest przed koncem seansu to nic nie rob
+                //Jesli bilet ma juz status wazny i jest przed koncem seansu to nic nie rob
                 return true;
             }
 
 
-            // Jesli bilet jest przed koncem seansu i jest conajwyzej 15 min przed rozpoczeciem to zmien na wazny
+            //Jesli bilet jest przed koncem seansu i jest conajwyzej 15 min przed rozpoczeciem to zmien na wazny
             if (now.isBefore(screeningEndTime) && (now.plusMinutes(15).isEqual(screeningStartTime) || now.plusMinutes(15).isAfter(screeningStartTime))) {
                 ticket.setStatus(TicketStatus.VALID);
                 ticketRepository.save(ticket);
@@ -90,7 +90,7 @@ public class TicketService {
         return true;
     }
 
-    // metoda kasujaca bilet
+    //metoda kasujaca bilet
     public boolean clipTicket(TicketRequest clipTicketRequest) {
         Ticket ticket = getById(clipTicketRequest.ticketId());
 
