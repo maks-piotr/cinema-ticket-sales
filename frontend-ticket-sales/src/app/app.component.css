@@ -2,6 +2,15 @@
     background-color: #49525b;
 }
 
-.costum-w-15 {
-    width: 15%;
+.costum-w-30 {
+    width: 30%;
+}
+
+.costum-w-40 {
+    width: 40%;
+}
+
+.login-btn {
+    margin-left: auto;
+    order: 2;
 }

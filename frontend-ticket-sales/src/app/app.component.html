@@ -1,6 +1,10 @@
-<nav class="ticket-bg p-1 d-flex sticky-top">
+<nav class="ticket-bg p-1 d-flex sticky-top justify-content-between">
   <!-- <h1 class="text-light">Ticket sales</h1> -->
-  <a [routerLink]="['movies']" class="btn btn-light m-2 costum-w-15">All Movies</a>
-  <a [routerLink]="['screenings']" class="btn btn-light m-2 costum-w-15">All Screenings</a>
+  <div class="costum-w-30">
+    <a [routerLink]="['movies']" class="btn btn-light m-2 costum-w-40">All Movies</a>
+    <a [routerLink]="['screenings']" class="btn btn-light m-2 costum-w-40">All Screenings</a>
+  </div>
+
+  <a [routerLink]="['signin']" class="btn btn-light m-2 login-btn">Verification</a>
 </nav>
 <router-outlet></router-outlet>

@@ -15,7 +15,8 @@
 
   <section *ngIf="screening.cinemaHall" class="seat-map">
     <h2 class="text-center mb-3">Select seats</h2>
-    <div *ngFor="let row of generateArray(screening.cinemaHall?.rows); let rowIndex = index">
+    <div class="screen">The Screen</div>
+    <div *ngFor="let row of generateArray(screening.cinemaHall?.rows); let rowIndex = index" class="seat-row">
       <div *ngFor="let seat of generateArray(screening.cinemaHall?.seatsInRows); let seatIndex = index"
            (click)="selectSeat(rowIndex, seatIndex)"
            [ngClass]="{'selected': isSelected(rowIndex, seatIndex), 'taken': isTaken(rowIndex, seatIndex)}"
@@ -23,7 +24,12 @@
         {{ rowIndex + 1 }}-{{ seatIndex + 1 }}
       </div>
     </div>
+    <div class="legend">
+      <div><span class="seat selected"></span> Selected</div>
+      <div><span class="seat taken"></span> Taken</div>
+      <div><span class="seat"></span> Available</div>
+    </div>
     <button class="btn ticket-button mt-2" (click)="goToCheckout()">Go to Checkout</button>
+    
   </section>
-  
 </article>

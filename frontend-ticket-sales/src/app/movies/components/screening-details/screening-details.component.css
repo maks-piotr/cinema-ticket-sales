@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.seat-map > div {
+.seat-map > .seat-row {
   display: flex;
   margin-bottom: 5px;
 }
@@ -50,4 +50,34 @@
 
 .ticket-button:hover {
   background-color: #62768a;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.legend .seat {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+}
+
+.screen {
+  width: calc(50px * 16);
+  height: 30px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
