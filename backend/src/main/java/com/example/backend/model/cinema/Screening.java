@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.Set;
-// Seans
+
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
@@ -15,17 +15,15 @@ public class Screening {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    // Relacja wiele do jednego z tabelą filmów
-    // Każdy seans odnosi się do jednego filmu
+
     @ManyToOne
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
     private Movie movie;
 
-    // Sala
     @ManyToOne
     @JoinColumn(name = "cinema_hall_id", referencedColumnName = "id")
     private CinemaHall cinemaHall;
-    // Zestaw biletów
+
     @OneToMany(mappedBy = "screening")
     private Set<Ticket> tickets;
 
