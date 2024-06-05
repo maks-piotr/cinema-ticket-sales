@@ -6,6 +6,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CinemaHallService {
 
@@ -18,5 +20,8 @@ public class CinemaHallService {
 
     public CinemaHall getById(long id) {
         return cinemaHallRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("CinemaHall with ID " + id + " not found"));
+    }
+    public List<CinemaHall> getAllCinemaHalls() {
+        return cinemaHallRepository.findAll();
     }
 }

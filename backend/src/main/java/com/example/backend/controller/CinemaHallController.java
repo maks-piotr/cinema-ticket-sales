@@ -5,6 +5,8 @@ import com.example.backend.service.CinemaHallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin(origins = "https://localhost:4200", maxAge = 3600, allowCredentials = "true")
 @RestController
 @RequestMapping("/api/cinema-halls")
@@ -21,4 +23,10 @@ public class CinemaHallController {
     public CinemaHall getCinemaHall(@PathVariable Long id) {
         return cinemaHallService.getById(id);
     }
+
+    @GetMapping("")
+    public List<CinemaHall> getAllCinemaHalls() {
+        return cinemaHallService.getAllCinemaHalls();
+    }
+
 }
