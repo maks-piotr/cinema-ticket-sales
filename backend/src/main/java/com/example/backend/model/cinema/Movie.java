@@ -50,6 +50,14 @@ public class Movie {
         this.title = title;
     }
 
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String title) {
+        this.director = director;
+    }
+
     public String getDescription() {
         return description;
     }
