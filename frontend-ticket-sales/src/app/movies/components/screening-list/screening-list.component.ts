@@ -10,7 +10,7 @@ import { HallsService } from '../../services/halls.service';
 @Component({
   selector: 'bs-screening-list',
   templateUrl: './screening-list.component.html',
-  styleUrls: ['./screening-list.component.scss'],
+  styleUrls: ['./screening-list.component.css'],
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   providers: [DatePipe]

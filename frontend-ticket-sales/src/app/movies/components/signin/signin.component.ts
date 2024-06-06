@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss'],
+  styleUrls: ['./signin.component.css'],
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule]
 })

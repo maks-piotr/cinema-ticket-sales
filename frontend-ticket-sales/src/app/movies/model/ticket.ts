@@ -5,4 +5,4 @@ export interface Ticket {
     screening_id: number;
     state: string;
     seats: Seat[];
-  }
+}
