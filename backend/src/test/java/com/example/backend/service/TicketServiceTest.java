@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 public class TicketServiceTest {
-
+    // usun mocki
     @Mock
     private TicketRepository ticketRepository;
 
@@ -31,8 +31,8 @@ public class TicketServiceTest {
 
         boolean isValid = ticketService.checkValidIfNotClipped(ticket);
 
-        assertFalse(isValid);
-        assertEquals(TicketStatus.INVALID, ticket.getStatus());
+        assertFalse(isValid); // Sprawdzam czy nieważny
+        assertEquals(TicketStatus.INVALID, ticket.getStatus());// sprawdzenie czy status invalid
     }
 
     @Test
@@ -43,40 +43,43 @@ public class TicketServiceTest {
 
         boolean isValid = ticketService.checkValidIfNotClipped(ticket);
 
-        assertTrue(isValid);
-        assertEquals(TicketStatus.VALID, ticket.getStatus());
+        assertTrue(isValid);// Sprawdzam czy ważny
+        assertEquals(TicketStatus.VALID, ticket.getStatus()); // Sprawdzam czy status jest Valid
     }
 
     @Test
     public void testTicketValidityExactly30MinsAfterEndTime() {
+        // Utwórz bilet, 30 minut po zakończeniu seansu
         Ticket ticket = createTicketAfterEndTime(30);
 
         boolean isValid = ticketService.checkValidIfNotClipped(ticket);
 
-        assertFalse(isValid);
-        assertEquals(TicketStatus.INVALID, ticket.getStatus());
+        assertFalse(isValid); // Sprawdzam czy nieważny
+        assertEquals(TicketStatus.INVALID, ticket.getStatus()); // Sprawdzam czy status jest Valid
     }
 
     @Test
     public void testTicketValidityExactly1MinBeforeAfterEndTime() {
+        // Utowórz bilet 1 minutę przed zakończeniem seansu
         Ticket ticket = createTicketAfterEndTime(-1);
 
         boolean isValid = ticketService.checkValidIfNotClipped(ticket);
 
-        assertTrue(isValid);
-        assertEquals(TicketStatus.VALID, ticket.getStatus());
+        assertTrue(isValid); // Sprawdzam czy ważny
+        assertEquals(TicketStatus.VALID, ticket.getStatus()); // Sprawdzam czy status jest Valid
     }
 
     @Test
     public void testTicketValidityExactly0MinBeforeAfterEndTime() {
+        // Utwórz bilet w chwili zakończenia seansu
         Ticket ticket = createTicketAfterEndTime(0);
 
         boolean isValid = ticketService.checkValidIfNotClipped(ticket);
 
-        assertFalse(isValid);
-        assertEquals(TicketStatus.INVALID, ticket.getStatus());
+        assertFalse(isValid); // Sprawdzam czy nieważny
+        assertEquals(TicketStatus.INVALID, ticket.getStatus()); // Sprawdzam czy status jest INVALID
     }
-
+    // Bilet przed rozpoczęciem seansu
     private Ticket createTicketBeforeStartTime(int minutesBeforeStartTime) {
         LocalDateTime screeningStartTime = LocalDateTime.now().plusMinutes(minutesBeforeStartTime);
         Movie movie = new Movie();
@@ -90,7 +93,7 @@ public class TicketServiceTest {
 
         return ticket;
     }
-
+    // Bilet po zakończeniu seansu
     private Ticket createTicketAfterEndTime(int minutesAfterStartTime) {
         LocalDateTime screeningEndTime = LocalDateTime.now().minusMinutes(minutesAfterStartTime);
         LocalDateTime screeningStartTime = screeningEndTime.minusMinutes(120);

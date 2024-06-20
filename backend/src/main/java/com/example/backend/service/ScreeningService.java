@@ -17,11 +17,11 @@ public class ScreeningService {
     public ScreeningService(ScreeningRepository screening) {
         this.screeningRepository = screening;
     }
-
+    // Wyszkanie screening po id
     public Screening getById(long id) {
         return screeningRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Screening with ID " + id + " not found"));
     }
-
+    // Wyszkanie screening
     public List<Screening> getAllScreenings() {
         return screeningRepository.findAll();
     }

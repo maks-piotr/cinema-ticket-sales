@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+// Zapobiega problemem z cyklicznymi odwołanami (nieskończona pętla)
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
@@ -15,15 +16,19 @@ public class Screening {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    // Relacja wiele do jednego z Movie
+    // Kazdy seans jest powiązany z filmem
     @ManyToOne
     @JoinColumn(name = "movie_id", referencedColumnName = "id")
     private Movie movie;
 
+    // Relacja wiele do jednego z CinemaHall
+    // Kazdy seans odbywa się w jendej sali kinowej
     @ManyToOne
     @JoinColumn(name = "cinema_hall_id", referencedColumnName = "id")
     private CinemaHall cinemaHall;
-
+    // Relacja jeden do wielu
+    // Kazdy seans moze miec wiele biletów
     @OneToMany(mappedBy = "screening")
     private Set<Ticket> tickets;
 

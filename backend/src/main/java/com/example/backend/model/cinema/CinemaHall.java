@@ -4,15 +4,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Set;
-
+// Model sali kinowej
 @Entity(name = "cinema_halls")
 public class CinemaHall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
+    @JsonIgnore // nie uwzględniamy listy screenings w JSON
+    // Relacja jeden do wielu między cienmahall a screening
+    // sala kinowa może byc powiazna z wieloma seansami
+    // cinemaHall niea zarządza ta relacja (dodwanie, usuwanie)
     @OneToMany(mappedBy = "cinemaHall")
+    // zbiór wielu sensów, sala kinowa może miec ich wiele
     private Set<Screening> screenings;
 
     private String name;

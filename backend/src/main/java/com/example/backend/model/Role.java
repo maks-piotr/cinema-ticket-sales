@@ -1,7 +1,7 @@
 package com.example.backend.model;
 
 import jakarta.persistence.*;
-
+// Reprezentajca Roli Uzytkownika (Biletera) w bazie
 @Entity
 @Table(name = "roles")
 public class Role {

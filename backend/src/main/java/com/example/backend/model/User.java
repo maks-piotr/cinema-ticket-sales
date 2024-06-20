@@ -7,8 +7,9 @@ import jakarta.validation.constraints.Size;
 
 import java.util.HashSet;
 import java.util.Set;
-
+// Reprezentajca Uzytkownika (Biletera) w bazie
 @Entity
+// tabela users z uniklanym email
 @Table(name = "users",
 uniqueConstraints = {
         @UniqueConstraint(columnNames = "email")
@@ -36,11 +37,14 @@ public class User {
     @NotBlank
     @Size(max = 50)
     private String lastName;
-
+    // Relacja wiele do wielu
+    // Uzytkownik może byc przypisany do wiele ról i rola może być przypisana do wielu userów
     @ManyToMany(fetch = FetchType.LAZY)
+    // tabela pośrednia user_roles która łaczy user i role
     @JoinTable(name = "user_roles",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "role_id"))
+        joinColumns = @JoinColumn(name = "user_id"), // uzytkownik
+        inverseJoinColumns = @JoinColumn(name = "role_id")) // rola
+    // przechowanie bez duplikatow
     private Set<Role> roles = new HashSet<>();
 
     public User() {}

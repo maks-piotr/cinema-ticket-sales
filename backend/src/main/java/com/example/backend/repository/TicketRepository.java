@@ -10,5 +10,6 @@ import java.util.Optional;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
+    // Może być puste, wyszukanie biletu po screening, nr rzedu i miejsca
     Optional<Ticket> findByScreeningAndRowNumberAndSeatNumber(Screening screening, Integer rowNumber, Integer seatNumber);
 }

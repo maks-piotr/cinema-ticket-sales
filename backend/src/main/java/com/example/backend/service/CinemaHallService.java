@@ -17,10 +17,11 @@ public class CinemaHallService {
     public CinemaHallService(CinemaHallRepository cinemaHallRepository) {
         this.cinemaHallRepository = cinemaHallRepository;
     }
-
+    // wyszkuanie sali kinowej po id
     public CinemaHall getById(long id) {
         return cinemaHallRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("CinemaHall with ID " + id + " not found"));
     }
+    // lista sal kinowych
     public List<CinemaHall> getAllCinemaHalls() {
         return cinemaHallRepository.findAll();
     }

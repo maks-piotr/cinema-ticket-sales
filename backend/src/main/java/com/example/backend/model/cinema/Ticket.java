@@ -7,11 +7,12 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    // Relacja wiele do jednego
+    // Wiele biketów do jednego screenign
     @ManyToOne
     @JoinColumn(name = "screening_id", referencedColumnName = "id")
     private Screening screening;
-
+    // Przevhowuje status w bazie jako string
     @Enumerated(EnumType.STRING)
     private TicketStatus status;
 

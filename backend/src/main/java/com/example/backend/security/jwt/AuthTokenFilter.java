@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-
+// Sprawdzenie i uwierzytelnie użytkownika na podstawie tokenu JWT w zapytaniu
 public class AuthTokenFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -23,26 +23,26 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
-
+    // logger o błędach
     private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         try {
-            String jwt = parseJwt(request);
-            if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
-                String username = jwtUtils.getUsernameFromJwtToken(jwt);
+            String jwt = parseJwt(request); // Pobranie tokenu JWT z żądania
+            if (jwt != null && jwtUtils.validateJwtToken(jwt)) { // Sprawdzenie, czy token jest obecny i czy jest ważny
+                String username = jwtUtils.getUsernameFromJwtToken(jwt); // Pobranie nazwy użtykownika z tokenu
 
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-                UsernamePasswordAuthenticationToken authentication =
+                UsernamePasswordAuthenticationToken authentication = // Utworzenie tokena uwierzytelniającego.
                         new UsernamePasswordAuthenticationToken(userDetails,
                                 null,
                                 userDetails.getAuthorities());
 
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
+                // Zapisanie tokena
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         } catch (Exception e) {

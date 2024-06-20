@@ -11,9 +11,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+// Spring Seciurity, adpter usera
+// Poptrzbe do autoryzacji, wzbogaca model usera o informacje do SpringSecuirty
 
 public class UserDetailsImpl implements UserDetails {
-
+    // kontorla nad serlializacja
+    // zapis stanu obiektu z bit i na obiekt
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -27,9 +30,9 @@ public class UserDetailsImpl implements UserDetails {
     private final String firstName;
 
     private final String lastName;
-
+    // lista uprawnein
     private final Collection<? extends GrantedAuthority> authorities;
-
+    // Kontruktor który przymuje inforacje do stworzzenia UserDetails
     public UserDetailsImpl(Long id, String email, String password, String firstName, String lastName, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.email = email;
@@ -38,9 +41,11 @@ public class UserDetailsImpl implements UserDetails {
         this.lastName = lastName;
         this.authorities = authorities;
     }
-
+    // Metoda budujaca UserDetailImp na podstawie User
     public static UserDetailsImpl build(User user) {
+        // przetowrzenie ról użytkownika na obiekt GrantedAuthority i zebranie ich do listy
         List<GrantedAuthority> authorities = user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
+
 
         return new UserDetailsImpl(
                 user.getId(),
@@ -97,7 +102,7 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
+    // Pórwnaanie na podstaiwi id
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

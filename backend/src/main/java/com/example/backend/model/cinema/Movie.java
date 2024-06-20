@@ -11,7 +11,8 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    // Relacja jeden do wielu z screnning
+    // kazdy film moze miec wiele seansów
     @JsonIgnore
     @OneToMany(mappedBy = "movie")
     private Set<Screening> screenings;

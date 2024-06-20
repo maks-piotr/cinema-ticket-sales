@@ -23,20 +23,20 @@ public class TicketController {
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
     }
-
+    // pobieranie biletu na podstawie id, tylko dla biletera
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('TICKET_COLLECTOR')")
     public Ticket getTicket(@PathVariable Long id) {
         return ticketService.getById(id);
     }
-
+    // kupowanie biletu, dostepne dla każdego
     @PostMapping("/buy")
     public ResponseEntity<MessageResponse> saveTicket(@Valid @RequestBody CreateTicketRequest createTicketRequest) {
         ticketService.saveTicket(createTicketRequest);
 
         return ResponseEntity.ok().body(new MessageResponse("The ticket has been purchased."));
     }
-
+    // Kasowanie biletu, status clipped, tylko dla biletera
     @PatchMapping("/clip")
     @PreAuthorize("hasRole('TICKET_COLLECTOR')")
     public ResponseEntity<MessageResponse> clipTicket(@Valid @RequestBody TicketRequest clipTicketRequest) {

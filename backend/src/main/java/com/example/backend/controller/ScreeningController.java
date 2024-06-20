@@ -18,12 +18,12 @@ public class ScreeningController {
     public ScreeningController(ScreeningService screeningService) {
         this.screeningService = screeningService;
     }
-
+    // Wyszukanie po id
     @GetMapping("/{id}")
     public Screening getScreening(@PathVariable Long id) {
         return screeningService.getById(id);
     }
-
+    // Wyszukanie listy screening
     @GetMapping
     public List<Screening> getAllScreenings() {
         return screeningService.getAllScreenings();
